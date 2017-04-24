@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,8 +11,28 @@ namespace RedditCloneAndAuthentication.Controllers
     {
         public ActionResult Index()
         {
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                var name = HttpContext.User.Identity.Name;
+                var userId = User.Identity.GetUserId();
+            }
             return View();
         }
+
+
+        [Authorize]
+        public ActionResult RedditMember()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult AddPost()
+        {
+            ViewBag.Name = HttpContext.User.Identity.Name;
+            return View();
+        }
+
 
         public ActionResult About()
         {

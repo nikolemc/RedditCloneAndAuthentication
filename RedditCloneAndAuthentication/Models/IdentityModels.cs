@@ -29,5 +29,7 @@ namespace RedditCloneAndAuthentication.Models
         {
             return new ApplicationDbContext();
         }
+        public DbSet<Post> Post { get; set; }
+
     }
 }
