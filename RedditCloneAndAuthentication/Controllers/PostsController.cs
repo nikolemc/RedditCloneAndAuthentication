@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using RedditCloneAndAuthentication.Models;
+using Microsoft.AspNet.Identity;
 
 namespace RedditCloneAndAuthentication.Controllers
 {
@@ -50,7 +51,7 @@ namespace RedditCloneAndAuthentication.Controllers
         {
             if (ModelState.IsValid)
             {
-                //post.UserId = HttpContext.User.Identity.GetUserId();
+                post.UserId = HttpContext.User.Identity.GetUserId();
                 db.Post.Add(post);
                 db.SaveChanges();
                 return RedirectToAction("Index");

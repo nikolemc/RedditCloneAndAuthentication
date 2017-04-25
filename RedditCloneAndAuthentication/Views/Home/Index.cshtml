@@ -21,26 +21,46 @@
 
         </li>
 
+            @foreach (var item in Model)
+            {
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-2">
 
-        @foreach (var item in Model)
-        {
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-md-2">
 
-                    </div>
-                    <div class="col-md-10">
-                        <strong>@item.Title</strong>
-                        <p>@item.UserName</p>
-                        <p>@item.UpVotes</p>
-                        <p>@item.DownVotes</p>
-                        <p>@item.PostedTimeStamp</p>
-                        <p>@item.PostImg</p>
-                    </div>
+                            @using (Html.BeginForm("Up", "Vote", new { id = item.Id }))
+                            {
+                                <button btn="btn btn-link">
+                                    <i class="glyphicon glyphicon-arrow-up"></i>
+                                </button>
+                            }
 
-                </div>
-            </li>
-        }
+                            <span>@(item.UpVotes - item.DownVotes)</span>
+                            <a href="Vote/Down/@item.Id">
+                                <i class="glyphicon glyphicon-arrow-down"></i>
+                            </a>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="..." alt="...">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">@item.Title</h4>
+                                    <p>@item.UserName</p>
+                                    <p>@item.PostedTimeStamp</p>
+                                    <p>@item.PostImg</p>
+                                </div>
+                            </div>
+
+
+                        </div>
+                </li>
+
+            }
+        </div>
 
     </ul>
 </div>
