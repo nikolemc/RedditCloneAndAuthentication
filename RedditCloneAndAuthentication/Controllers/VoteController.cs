@@ -10,7 +10,7 @@ namespace RedditCloneAndAuthentication.Controllers
     public class VoteController : Controller
     {
         // GET: Vote
-        public ActionResult Index(int id)
+        public ActionResult Up(int id)
         {
             var db = new ApplicationDbContext();
             var post = db.Post.FirstOrDefault(f => f.Id == id);

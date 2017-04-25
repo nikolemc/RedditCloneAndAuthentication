@@ -54,7 +54,7 @@ namespace RedditCloneAndAuthentication.Controllers
                 post.UserId = HttpContext.User.Identity.GetUserId();
                 db.Post.Add(post);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             return View(post);
