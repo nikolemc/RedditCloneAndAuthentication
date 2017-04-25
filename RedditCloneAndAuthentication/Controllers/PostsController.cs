@@ -46,7 +46,7 @@ namespace RedditCloneAndAuthentication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,UserName,UpVotes,DownVotes,PostedTimeStamp,PostImg")] Post post)
+        public ActionResult Create([Bind(Include = "Title,UserName,PostImg")] Post post)
         {
             if (ModelState.IsValid)
             {

@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<RedditCloneAndAuthentication.Models.Post>
-    
+
 
 @{
     ViewBag.Title = "Home Page";
@@ -8,23 +8,26 @@
 <div class="container">
 
     <ul class="list-group">
-        
+
         <li class="list-group-item active">
-                   <div class="row">
-                          <div class="col-md-8"><strong>Hot posts</strong></div>
-                            <div class="col-md-4">@Html.ActionLink("Create Post", "Create", "Posts", null, new { @class = "btn btn-primary btn-lg" })</div>
-                
+            <div class="row">
+                <div class="col-md-8"><strong>Hot posts</strong></div>
+
+                @if (HttpContext.Current.User.Identity.IsAuthenticated) //only show create button to users who are logged in
+                {
+                    <div class="col-md-4">@Html.ActionLink("Create Post", "Create", "Posts", null, new { @class = "btn btn-primary btn-lg" })</div>
+                }
             </div>
-            
+
         </li>
-        
+
 
         @foreach (var item in Model)
         {
             <li class="list-group-item">
                 <div class="row">
                     <div class="col-md-2">
-                                          
+
                     </div>
                     <div class="col-md-10">
                         <strong>@item.Title</strong>
@@ -32,14 +35,12 @@
                         <p>@item.UpVotes</p>
                         <p>@item.DownVotes</p>
                         <p>@item.PostedTimeStamp</p>
-                        <p>@item.PostImg</p>               
+                        <p>@item.PostImg</p>
                     </div>
 
                 </div>
             </li>
         }
 
-        </ul>
-    </div>
-  
- 
+    </ul>
+</div>

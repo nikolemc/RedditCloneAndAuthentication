@@ -14,14 +14,15 @@ namespace RedditCloneAndAuthentication.Controllers
     {
         public ActionResult Index()
         {
+            
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                var name = HttpContext.User.Identity.Name;
+                var userId = User.Identity.GetUserId();
+                var userName = User.Identity.GetUserName();
+            }
+
             var vm = new ApplicationDbContext().Post.OrderByDescending(o => o.PostedTimeStamp).ToList();
-
-
-            //if (HttpContext.User.Identity.IsAuthenticated)
-            //{
-            //    var name = HttpContext.User.Identity.Name;
-            //    var userId = User.Identity.GetUserId();
-            //}
             return View(vm);
         }
 
