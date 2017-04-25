@@ -97,3 +97,4 @@ C:\Users\Nikole McStanley\tiy\week-6\RedditCloneAndAuthentication\RedditCloneAnd
 C:\Users\Nikole McStanley\tiy\week-6\RedditCloneAndAuthentication\RedditCloneAndAuthentication\RedditCloneAndAuthentication\obj\Debug\RedditCloneAndAuthentication.Migrations.PostTable.resources
 C:\Users\Nikole McStanley\tiy\week-6\RedditCloneAndAuthentication\RedditCloneAndAuthentication\RedditCloneAndAuthentication\obj\Debug\RedditCloneAndAuthentication.csproj.GenerateResource.Cache
 C:\Users\Nikole McStanley\tiy\week-6\RedditCloneAndAuthentication\RedditCloneAndAuthentication\RedditCloneAndAuthentication\obj\Debug\RedditCloneAndAuthentication.Migrations.Makecontroller.resources
+C:\Users\Nikole McStanley\tiy\week-6\RedditCloneAndAuthentication\RedditCloneAndAuthentication\RedditCloneAndAuthentication\obj\Debug\RedditCloneAndAuthentication.Migrations.UpdateMigration.resources

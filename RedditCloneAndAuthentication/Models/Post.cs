@@ -13,7 +13,7 @@ namespace RedditCloneAndAuthentication.Models
         public string UserName { get; set; }
         public int UpVotes { get; set; }
         public int DownVotes { get; set; }
-        public DateTime PostedTimeStamp { get; set; }
+        public DateTime PostedTimeStamp { get; set; } = DateTime.Now;
         public string PostImg { get; set; }
 
 

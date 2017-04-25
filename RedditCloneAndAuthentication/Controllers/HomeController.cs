@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using RedditCloneAndAuthentication.Models;
+using RedditCloneAndAuthentication.Services;
+using RedditCloneAndAuthentication.ViewModels;
 
 namespace RedditCloneAndAuthentication.Controllers
 {
@@ -11,12 +14,15 @@ namespace RedditCloneAndAuthentication.Controllers
     {
         public ActionResult Index()
         {
-            if (HttpContext.User.Identity.IsAuthenticated)
-            {
-                var name = HttpContext.User.Identity.Name;
-                var userId = User.Identity.GetUserId();
-            }
-            return View();
+            var vm = new ApplicationDbContext().Post.OrderByDescending(o => o.PostedTimeStamp).ToList();
+
+
+            //if (HttpContext.User.Identity.IsAuthenticated)
+            //{
+            //    var name = HttpContext.User.Identity.Name;
+            //    var userId = User.Identity.GetUserId();
+            //}
+            return View(vm);
         }
 
 
