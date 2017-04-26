@@ -22,5 +22,19 @@ namespace RedditCloneAndAuthentication.Controllers
             db.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
+
+
+        public ActionResult Down(int id)
+        {
+            var db = new ApplicationDbContext();
+            var post = db.Post.FirstOrDefault(f => f.Id == id);
+            if (post == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            post.DownVotes -= -1;
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
