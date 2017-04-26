@@ -120,6 +120,9 @@ textarea {
 button {
   overflow: visible;
 }
+.ButtonClicked {
+    background-color: red;
+}
 button,
 select {
   text-transform: none;

@@ -1,17 +1,18 @@
-﻿let upVote = (postId) => {
+﻿let upVote = function (postId) {
     let _data = {
-        id: postId
+        id:postId
     }
-
+    
     $.ajax({
         url: "/vote/up",
         data: JSON.stringify(_data),
-        contentType: "application/json",
-        type: "POST",
+        contentType:"application/json",
+        type:"POST",
         dataType: "html",
         success: (newHtml) => {
             $("#voteContainer-" + postId).html(newHtml);
         }
+
     })
 }
 
@@ -27,3 +28,16 @@ let downVote = (postId) => {
         }
     })
 }
+
+$(document).ready(() => {
+
+    console.log("ready...");
+    //upVote();
+    $(".vote-button").on("click", function () {
+        //!$(this).hasClass('ButtonClicked') ? addClass('ButtonClicked') : '';
+        //!$("button").removeClass("active");
+        $(this).addClass("active");
+    });
+});
+
+

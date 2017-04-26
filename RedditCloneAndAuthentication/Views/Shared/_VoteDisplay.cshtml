@@ -1,10 +1,40 @@
 ﻿@model RedditCloneAndAuthentication.Models.Post
 
-<button btn="btn btn-link" onclick="upVote(@Model.Id);">
+@{
+    var upVoteClass = "";
+    var downVoteClass = "";
+
+    if (User.Identity.IsAuthenticated)
+
+
+    {
+        var userVote = Model.PostValue.SingleOrDefault(w => w.UserId == ViewBag.UserId);
+        if (userVote != null)
+        {
+            if (userVote.VoteValue == 1)
+            {
+                   @*that that current user, upvaoted that post*@
+    upVoteClass = "active";
+}
+else if (userVote.VoteValue == -1)
+{
+                @*that that current user, upvaoted that post*@
+                downVoteClass = "active";
+            }
+        }
+    }
+
+}
+
+
+
+<button class="btn btn-link vote-button @upVoteClass" onclick="upVote(@Model.Id);">
     <i class="glyphicon glyphicon-arrow-up"></i>
 </button>
+
 <span>@(Model.UpVotes - Model.DownVotes)</span>
-<button btn="btn btn-link" onclick="downVote(@Model.Id);">
+
+<button class="btn btn-link vote-button  @downVoteClass" onclick="downVote(@Model.Id);">
     <i class="glyphicon glyphicon-arrow-down"></i>
 </button>
 

@@ -206,11 +206,16 @@
     <Compile Include="Migrations\201704241504080_Update-Migration.Designer.cs">
       <DependentUpon>201704241504080_Update-Migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704262149196_AddingVotes.cs" />
+    <Compile Include="Migrations\201704262149196_AddingVotes.Designer.cs">
+      <DependentUpon>201704262149196_AddingVotes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\PostValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\RedditService.cs" />
     <Compile Include="Startup.cs" />
@@ -318,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704241504080_Update-Migration.resx">
       <DependentUpon>201704241504080_Update-Migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704262149196_AddingVotes.resx">
+      <DependentUpon>201704262149196_AddingVotes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

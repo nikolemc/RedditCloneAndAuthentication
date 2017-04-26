@@ -21,40 +21,44 @@
 
         </li>
 
-            @foreach (var item in Model)
+        @foreach (var item in Model)
             {
-                <li class="list-group-item">
-                    <div class="row">                        
+            <li class="list-group-item">
+                <div class="row">
+
+                    @if (HttpContext.Current.User.Identity.IsAuthenticated) //only show up/down button to users who are logged in
+                    {
                         
-                        @if (HttpContext.Current.User.Identity.IsAuthenticated) //only show up/down button to users who are logged in
-                        {
-                            <div class="col-md-2" id="voteContainer-@item.Id">
-                                @Html.Partial("_VoteDisplay", item)
-                            </div>
-                                                       
-                        }
-                        <div class="col-md-10">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object" src="..." alt="...">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">@item.Title</h4>
-                                    <p>@item.UserName</p>
-                                    <p>@item.PostedTimeStamp</p>
-                                    <p>@item.PostImg</p>
-                                </div>
-                            </div>
-
-
+                        <div class="col-md-2" id="voteContainer-@item.Id">
+                          @Html.Partial("_VoteDisplay", item);
                         </div>
-                        </div>
-                </li>
 
-            }
-        </div>
+                    }
+                        
+                    
+                    <div class="col-md-10">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" src="..." alt="...">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">@item.Title</h4>
+                                <p>@item.UserName</p>
+                                <p>@item.PostedTimeStamp</p>
+                                <p>@item.PostImg</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </li>
+
+        }
 
     </ul>
 </div>
+
+

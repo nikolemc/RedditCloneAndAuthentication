@@ -15,6 +15,8 @@ namespace RedditCloneAndAuthentication.Models
         public int DownVotes { get; set; }
         public DateTime PostedTimeStamp { get; set; } = DateTime.Now;
         public string PostImg { get; set; }
+        public List<PostValue> PostValue { get; set; }
+
 
 
         public string UserId { get; set; }
