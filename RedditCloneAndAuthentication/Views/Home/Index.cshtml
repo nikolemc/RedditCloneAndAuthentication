@@ -25,7 +25,11 @@
             {
                 <li class="list-group-item">
                     <div class="row">
-                        <div class="col-md-2">
+                        
+                        
+                        @if (HttpContext.Current.User.Identity.IsAuthenticated) //only show up/down button to users who are logged in
+                        {
+                            <div class="col-md-2">
 
 
                             @using (Html.BeginForm("Up", "Vote", new { id = item.Id }))
@@ -45,7 +49,8 @@
 
                             <span>@(item.UpVotes - item.DownVotes)</span>                            
                             
-                        </div>
+                            </div>
+                        }
                         <div class="col-md-10">
                             <div class="media">
                                 <div class="media-left">
