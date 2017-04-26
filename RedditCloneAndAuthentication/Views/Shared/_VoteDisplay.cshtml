@@ -1,0 +1,10 @@
+﻿@model RedditCloneAndAuthentication.Models.Post
+
+<button btn="btn btn-link" onclick="upVote(@Model.Id);">
+    <i class="glyphicon glyphicon-arrow-up"></i>
+</button>
+<span>@(Model.UpVotes - Model.DownVotes)</span>
+<button btn="btn btn-link" onclick="downVote(@Model.Id);">
+    <i class="glyphicon glyphicon-arrow-down"></i>
+</button>
+

@@ -24,32 +24,14 @@
             @foreach (var item in Model)
             {
                 <li class="list-group-item">
-                    <div class="row">
-                        
+                    <div class="row">                        
                         
                         @if (HttpContext.Current.User.Identity.IsAuthenticated) //only show up/down button to users who are logged in
                         {
-                            <div class="col-md-2">
-
-
-                            @using (Html.BeginForm("Up", "Vote", new { id = item.Id }))
-                            {
-                                <button btn="btn btn-link">
-                                    <i class="glyphicon glyphicon-arrow-up"></i>
-                                </button>
-                            }
-
-                                                    
-                            @using (Html.BeginForm("Down", "Vote", new { id = item.Id }))
-                            {
-                                <button btn="btn btn-link">
-                                    <i class="glyphicon glyphicon-arrow-down"></i>
-                                </button>
-                            }
-
-                            <span>@(item.UpVotes - item.DownVotes)</span>                            
-                            
+                            <div class="col-md-2" id="voteContainer-@item.Id">
+                                @Html.Partial("_VoteDisplay", item)
                             </div>
+                                                       
                         }
                         <div class="col-md-10">
                             <div class="media">
@@ -67,6 +49,7 @@
                             </div>
 
 
+                        </div>
                         </div>
                 </li>
 
